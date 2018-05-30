@@ -15,7 +15,7 @@ public class Test2Controller {
 
     @GetMapping("getUser")
     public UserInfo getUser(){
-        System.out.println("get user---");
+        System.out.println("get user----");
         UserInfo info = new UserInfo();
         info.setAge(10);
         info.setName("luo");
