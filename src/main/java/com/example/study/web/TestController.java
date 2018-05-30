@@ -11,7 +11,7 @@ public class TestController {
 
     @GetMapping("hello")
     public String hello(){
-        int i2 = 0;
+        int i3 = 0;
         return "hello";
     }
 
