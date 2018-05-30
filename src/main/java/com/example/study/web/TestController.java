@@ -12,6 +12,7 @@ public class TestController {
     @GetMapping("hello")
     public String hello(){
         int i2 = 0;
+        int changelist2 = 0;
         return "hello";
     }
 
