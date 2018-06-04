@@ -21,4 +21,11 @@ public class Test2Controller {
         info.setName("luo");
         return info;
     }
+
+
+    @GetMapping("getStr")
+    public String getStr(){
+        System.out.println(" getStr----");
+        return "getStr";
+    }
 }
