@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.example.study.dao.mapper.UserDao">
+    <resultMap type="com.example.study.domain.User" id="userMap">
+		<result property="id" column="id"/>
+		<result property="username" column="username"/>
+		<result property="password" column="password"/>
+		<result property="payPassword" column="pay_password"/>
+		<result property="realName" column="real_name"/>
+		<result property="realNameAuth" column="real_name_auth"/>
+		<result property="cardType" column="card_type"/>
+		<result property="cardNo" column="card_no"/>
+		<result property="cardNoAuth" column="card_no_auth"/>
+		<result property="mobile" column="mobile"/>
+		<result property="mobileAuth" column="mobile_auth"/>
+		<result property="email" column="email"/>
+		<result property="emailAuth" column="email_auth"/>
+		<result property="qqNo" column="qq_no"/>
+		<result property="wxNo" column="wx_no"/>
+		<result property="openId" column="open_id"/>
+		<result property="sex" column="sex"/>
+		<result property="birthday" column="birthday"/>
+		<result property="avatar" column="avatar"/>
+		<result property="type" column="type"/>
+		<result property="level" column="level"/>
+		<result property="status" column="status"/>
+		<result property="supperUserId" column="supper_user_id"/>
+		<result property="deviceSerialId" column="device_serial_id"/>
+		<result property="deviceId" column="device_id"/>
+		<result property="phoneSystemVersion" column="phone_system_version"/>
+		<result property="deviceType" column="device_type"/>
+		<result property="latestDeviceType" column="latest_device_type"/>
+		<result property="channel" column="channel"/>
+		<result property="channelId" column="channel_id"/>
+		<result property="lastChannel" column="last_channel"/>
+		<result property="salt" column="salt"/>
+		<result property="registrationId" column="registration_id"/>
+		<result property="toWallet" column="to_wallet"/>
+		<result property="newmoney" column="newmoney"/>
+		<result property="addTime" column="add_time"/>
+		<result property="addUserId" column="add_user_id"/>
+		<result property="modifyTime" column="modify_time"/>
+		<result property="modifyUserId" column="modify_user_id"/>
+		<result property="province" column="province"/>
+		<result property="appVersion" column="app_version"/>
+		<result property="idfa" column="idfa"/>
+
+    </resultMap>
+
+    <select id="getByPrimaryKey" parameterType="Long" resultMap="userMap">
+    	SELECT * FROM s_user WHERE  id = #{id}
+    </select>
+    
+    <insert id="create" parameterType="com.example.study.domain.User">
+        <selectKey resultType="Long" order="AFTER" keyProperty="id" >
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO s_user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">id,</if>
+			<if test="username != null">username,</if>
+			<if test="password != null">password,</if>
+			<if test="payPassword != null">pay_password,</if>
+			<if test="realName != null">real_name,</if>
+			<if test="realNameAuth != null">real_name_auth,</if>
+			<if test="cardType != null">card_type,</if>
+			<if test="cardNo != null">card_no,</if>
+			<if test="cardNoAuth != null">card_no_auth,</if>
+			<if test="mobile != null">mobile,</if>
+			<if test="mobileAuth != null">mobile_auth,</if>
+			<if test="email != null">email,</if>
+			<if test="emailAuth != null">email_auth,</if>
+			<if test="qqNo != null">qq_no,</if>
+			<if test="wxNo != null">wx_no,</if>
+			<if test="openId != null">open_id,</if>
+			<if test="sex != null">sex,</if>
+			<if test="birthday != null">birthday,</if>
+			<if test="avatar != null">avatar,</if>
+			<if test="type != null">type,</if>
+			<if test="level != null">level,</if>
+			<if test="status != null">status,</if>
+			<if test="supperUserId != null">supper_user_id,</if>
+			<if test="deviceSerialId != null">device_serial_id,</if>
+			<if test="deviceId != null">device_id,</if>
+			<if test="phoneSystemVersion != null">phone_system_version,</if>
+			<if test="deviceType != null">device_type,</if>
+			<if test="latestDeviceType != null">latest_device_type,</if>
+			<if test="channel != null">channel,</if>
+			<if test="channelId != null">channel_id,</if>
+			<if test="lastChannel != null">last_channel,</if>
+			<if test="salt != null">salt,</if>
+			<if test="registrationId != null">registration_id,</if>
+			<if test="toWallet != null">to_wallet,</if>
+			<if test="newmoney != null">newmoney,</if>
+			<if test="addTime != null">add_time,</if>
+			<if test="addUserId != null">add_user_id,</if>
+			<if test="modifyTime != null">modify_time,</if>
+			<if test="modifyUserId != null">modify_user_id,</if>
+			<if test="province != null">province,</if>
+			<if test="appVersion != null">app_version,</if>
+			<if test="idfa != null">idfa,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">#{id},</if>
+			<if test="username != null">#{username},</if>
+			<if test="password != null">#{password},</if>
+			<if test="payPassword != null">#{payPassword},</if>
+			<if test="realName != null">#{realName},</if>
+			<if test="realNameAuth != null">#{realNameAuth},</if>
+			<if test="cardType != null">#{cardType},</if>
+			<if test="cardNo != null">#{cardNo},</if>
+			<if test="cardNoAuth != null">#{cardNoAuth},</if>
+			<if test="mobile != null">#{mobile},</if>
+			<if test="mobileAuth != null">#{mobileAuth},</if>
+			<if test="email != null">#{email},</if>
+			<if test="emailAuth != null">#{emailAuth},</if>
+			<if test="qqNo != null">#{qqNo},</if>
+			<if test="wxNo != null">#{wxNo},</if>
+			<if test="openId != null">#{openId},</if>
+			<if test="sex != null">#{sex},</if>
+			<if test="birthday != null">#{birthday},</if>
+			<if test="avatar != null">#{avatar},</if>
+			<if test="type != null">#{type},</if>
+			<if test="level != null">#{level},</if>
+			<if test="status != null">#{status},</if>
+			<if test="supperUserId != null">#{supperUserId},</if>
+			<if test="deviceSerialId != null">#{deviceSerialId},</if>
+			<if test="deviceId != null">#{deviceId},</if>
+			<if test="phoneSystemVersion != null">#{phoneSystemVersion},</if>
+			<if test="deviceType != null">#{deviceType},</if>
+			<if test="latestDeviceType != null">#{latestDeviceType},</if>
+			<if test="channel != null">#{channel},</if>
+			<if test="channelId != null">#{channelId},</if>
+			<if test="lastChannel != null">#{lastChannel},</if>
+			<if test="salt != null">#{salt},</if>
+			<if test="registrationId != null">#{registrationId},</if>
+			<if test="toWallet != null">#{toWallet},</if>
+			<if test="newmoney != null">#{newmoney},</if>
+			<if test="addTime != null">now(),</if>
+			<if test="addUserId != null">#{addUserId},</if>
+			<if test="modifyTime != null">now(),</if>
+			<if test="modifyUserId != null">#{modifyUserId},</if>
+			<if test="province != null">#{province},</if>
+			<if test="appVersion != null">#{appVersion},</if>
+			<if test="idfa != null">#{idfa}</if>
+		</trim>
+    </insert>
+    
+    <update id="update" parameterType="com.example.study.domain.User">
+		UPDATE s_user
+		<set>
+			<if test="username != null">username = #{username},</if>
+			<if test="password != null">password = #{password},</if>
+			<if test="payPassword != null">pay_password = #{payPassword},</if>
+			<if test="realName != null">real_name = #{realName},</if>
+			<if test="realNameAuth != null">real_name_auth = #{realNameAuth},</if>
+			<if test="cardType != null">card_type = #{cardType},</if>
+			<if test="cardNo != null">card_no = #{cardNo},</if>
+			<if test="cardNoAuth != null">card_no_auth = #{cardNoAuth},</if>
+			<if test="mobile != null">mobile = #{mobile},</if>
+			<if test="mobileAuth != null">mobile_auth = #{mobileAuth},</if>
+			<if test="email != null">email = #{email},</if>
+			<if test="emailAuth != null">email_auth = #{emailAuth},</if>
+			<if test="qqNo != null">qq_no = #{qqNo},</if>
+			<if test="wxNo != null">wx_no = #{wxNo},</if>
+			<if test="openId != null">open_id = #{openId},</if>
+			<if test="sex != null">sex = #{sex},</if>
+			<if test="birthday != null">birthday = #{birthday},</if>
+			<if test="avatar != null">avatar = #{avatar},</if>
+			<if test="type != null">type = #{type},</if>
+			<if test="level != null">level = #{level},</if>
+			<if test="status != null">status = #{status},</if>
+			<if test="supperUserId != null">supper_user_id = #{supperUserId},</if>
+			<if test="deviceSerialId != null">device_serial_id = #{deviceSerialId},</if>
+			<if test="deviceId != null">device_id = #{deviceId},</if>
+			<if test="phoneSystemVersion != null">phone_system_version = #{phoneSystemVersion},</if>
+			<if test="deviceType != null">device_type = #{deviceType},</if>
+			<if test="latestDeviceType != null">latest_device_type = #{latestDeviceType},</if>
+			<if test="channel != null">channel = #{channel},</if>
+			<if test="channelId != null">channel_id = #{channelId},</if>
+			<if test="lastChannel != null">last_channel = #{lastChannel},</if>
+			<if test="salt != null">salt = #{salt},</if>
+			<if test="registrationId != null">registration_id = #{registrationId},</if>
+			<if test="toWallet != null">to_wallet = #{toWallet},</if>
+			<if test="newmoney != null">newmoney = #{newmoney},</if>
+			<if test="modifyTime != null">modify_time = now(),</if>
+			<if test="modifyUserId != null">modify_user_id = #{modifyUserId},</if>
+			<if test="province != null">province = #{province},</if>
+			<if test="appVersion != null">app_version = #{appVersion},</if>
+			<if test="idfa != null">idfa = #{idfa},</if>
+		</set>
+		WHERE id = #{id}
+
+    </update>
+    
+    <delete id="delete" parameterType="Long">
+    	Delete from s_user
+		WHERE id = #{id}
+    </delete>
+
+    <select id="count" parameterType="map" resultType="Integer">
+      SELECT count(id) FROM s_user WHERE 1 = 1
+		<if test="id != null">
+			AND id = #{id}
+		</if>
+
+    </select>
+
+    <select id="get" parameterType="map" resultMap="userMap">
+        SELECT * FROM s_user WHERE 1 = 1
+		<if test="id != null">
+			AND id = #{id}
+		</if>
+		<if test="username != null">
+			AND username = #{username}
+		</if>
+
+		limit 0, 1
+    </select>
+
+    <select id="getList" parameterType="map" resultMap="userMap">
+        SELECT * FROM s_user WHERE 1 = 1
+		<if test="id != null">
+			AND id = #{id}
+		</if>
+    </select>
+</mapper>

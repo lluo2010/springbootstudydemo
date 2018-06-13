@@ -6,7 +6,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.io.IOException;
 
 /**
  * Created by louis on 2018/6/5.
@@ -34,5 +38,7 @@ public class RedisServiceTest {
         String strKey = "luokey1";
         String s = redisCacheDB1Service.get(strKey);
         System.out.println("result:"+s);
+
+        //sqlSessionFactory.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
     }
 }

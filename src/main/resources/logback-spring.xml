@@ -37,7 +37,7 @@
 	</springProfile>
 
 	<springProfile name="dev">
-		<root level="INFO">
+		<root level="info">
 			<appender-ref ref="CONSOLE" />
 		</root>
 	</springProfile>
@@ -51,4 +51,23 @@
 			<appender-ref ref="STBRollingFileAppender" />
 		</root>
 	</springProfile>
+
+
+	<!-- druid数据源配置打印日志 start-->
+	<!--<logger name="druid.sql">-->
+		<!--<level value="DEBUG"/>-->
+	<!--</logger>-->
+	<!--<logger name="druid.sql.DataSource">-->
+		<!--<level value="DEBUG"/>-->
+	<!--</logger>-->
+	<!--<logger name="druid.sql.Connection">-->
+		<!--<level value="DEBUG"/>-->
+	<!--</logger>-->
+	<!--<logger name="druid.sql.Statement">-->
+		<!--<level value="DEBUG"/>-->
+	<!--</logger>-->
+	<!--<logger name="druid.sql.ResultSet">-->
+		<!--<level value="DEBUG"/>-->
+	<!--</logger>-->
+	<!-- druid数据源配置打印日志 end -->
 </configuration>
