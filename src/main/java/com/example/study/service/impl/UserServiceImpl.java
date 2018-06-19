@@ -36,4 +36,19 @@ public class UserServiceImpl implements UserService {
 	public List<User> getList(Map<String,Object> params){
 		return userDao.getList(params);
 	}
+
+	@Override
+	public int queryCount(Integer user_id) {
+	    return userDao.queryCount(user_id);
+	}
+
+	@Override
+	public List<User> queryUserList(Integer user_id) {
+	    return userDao.queryUserList(user_id);
+	}
+
+	@Override
+	public User queryUser(Integer user_id) {
+	    return userDao.queryUser(user_id);
+	}
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -37,4 +38,44 @@ public class TestController {
         return "hello";
     }
 
+
+    /**
+     * 测试使用@Select返回Integer型
+     * @return
+     */
+    @GetMapping("queryInt")
+    public String queryAnnotationTest() {
+        int id = 10;
+        int count = userService.queryCount(id);
+        return "id<" + id + ":" + count;
+    }
+
+
+    /**
+     * 测试使用@Select返回ObjectList
+     * @return
+     */
+    @GetMapping("queryUserList")
+    public String queryUserListAnnotationTest() {
+        int id = 10;
+        List<User> users = userService.queryUserList(id);
+        StringBuffer sb = new StringBuffer();
+        sb.append("id<"+id+":\n");
+        users.forEach(user->{
+            sb.append(user.getUsername()+"\n");
+        });
+        return sb.toString();
+    }
+
+
+    /**
+     * 测试使用@Select返回Object
+     * @return
+     */
+    @GetMapping("queryUser")
+    public String queryUserAnnotationTest() {
+        int id = 10;
+        User user = userService.queryUser(10);
+        return "id<" + id + ":" + user.getUsername();
+    }
 }
