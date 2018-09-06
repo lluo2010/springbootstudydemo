@@ -15,6 +15,10 @@ public class UserServiceImpl implements UserService {
     @Autowired
 	private UserDao userDao;
 
+
+/*    @Autowired
+    private SqlMapper sqlMapper;*/
+
 	public User getByPrimaryKey(Long id){
 		return userDao.getByPrimaryKey(id);
 	}
